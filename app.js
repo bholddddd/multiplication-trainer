@@ -62,43 +62,51 @@ function setupEventListeners() {
 const THEMES = {
     cafe: {
         name: 'cafe',
-        color: 'linear-gradient(135deg, #a89968, #8a7a54)'
+        color: 'linear-gradient(135deg, #3d2f1f, #2a1f14)'
     },
     strawberry: {
         name: 'strawberry',
-        color: 'linear-gradient(135deg, #ff6b7a, #dd5a68)'
+        color: 'linear-gradient(135deg, #d9696f, #8b0000)'
     },
     creamsicle: {
         name: 'creamsicle',
-        color: 'linear-gradient(135deg, #ffb366, #dd9952)'
+        color: 'linear-gradient(135deg, #d4945c, #cc7722)'
     },
     iv_clover: {
         name: 'iv_clover',
-        color: 'linear-gradient(135deg, #7a7a7a, #6b6b6b)'
+        color: 'linear-gradient(135deg, #6b6b6b, #4a4a4a)'
     },
     alpine: {
         name: 'alpine',
-        color: 'linear-gradient(135deg, #b8a998, #9a8b7a)'
+        color: 'linear-gradient(135deg, #6b7a8a, #5a6b7a)'
     },
     striker: {
         name: 'striker',
-        color: 'linear-gradient(135deg, #4a90e2, #3a7acc)'
+        color: 'linear-gradient(135deg, #1a3a5a, #2e5f9e)'
     },
     serika_dark: {
         name: 'serika_dark',
-        color: 'linear-gradient(135deg, #e4c4a0, #c4a480)'
+        color: 'linear-gradient(135deg, #1a1a1a, #0d0d0d)'
     },
     repose_dark: {
         name: 'repose_dark',
-        color: 'linear-gradient(135deg, #b3aa93, #9a9a83)'
+        color: 'linear-gradient(135deg, #2e2e2e, #2a2a2a)'
     },
     sonokai: {
         name: 'sonokai',
-        color: 'linear-gradient(135deg, #a3d900, #8abe00)'
+        color: 'linear-gradient(135deg, #2a2a2a, #a3d900)'
     },
     viridescent: {
         name: 'viridescent',
-        color: 'linear-gradient(135deg, #6b9f79, #5a8f68)'
+        color: 'linear-gradient(135deg, #1a3a2a, #e8f5f0)'
+    },
+    moonlight: {
+        name: 'moonlight',
+        color: 'linear-gradient(135deg, #1a1f3a, #e0e8ff)'
+    },
+    coral: {
+        name: 'coral',
+        color: 'linear-gradient(135deg, #3a1a1a, #ffcccc)'
     }
 };
 
@@ -130,7 +138,7 @@ function setTheme(themeName) {
 }
 
 function loadSavedTheme() {
-    const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'cafe';
+    const savedTheme = localStorage.getItem(STORAGE_KEYS.THEME) || 'sonokai';
     setTheme(savedTheme);
 }
 
