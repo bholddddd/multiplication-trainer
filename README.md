@@ -2,7 +2,7 @@
 
 A responsive single-page web application for practicing 2-digit × 2-digit mental multiplication. Features speed tracking, learning materials, and advanced statistics with speedcubing-style rolling averages.
 
-**Live Demo:** https://bholdddd.github.io/multiplication-trainer
+**Live Demo:** https://bholdvilnius.github.io/multiplication-trainer
 
 ---
 
@@ -37,12 +37,27 @@ Includes practical tips for improving speed and accuracy.
 - **History Table**: Detailed log of last 50 solves with timestamps
 - **Data Management**: One-click clear for all data
 
+### 🎨 Settings Tab
+- **10 Beautiful Color Themes**:
+  - cafe - Warm, earthy browns
+  - strawberry - Soft pink palette
+  - creamsicle - Warm orange tones
+  - iv_clover - Cool gray with tan accents
+  - alpine - Blue-gray mountain theme
+  - striker - Electric blue
+  - serika_dark - Warm beige on black
+  - repose_dark - Refined gray palette
+  - sonokai - Vibrant green on dark
+  - viridescent - Cool green tones
+
+Each theme uses solid accent colors for clean, modern aesthetics.
+
 ---
 
 ## 🛠️ Technical Stack
 
 - **HTML5**: Semantic markup, mobile-first structure
-- **CSS3**: Modern dark theme, responsive grid layouts, smooth animations
+- **CSS3**: Theme system with 10 curated color palettes, responsive grid layouts, smooth animations
 - **Vanilla JavaScript**: No frameworks, ~700 lines of pure JS
 - **Chart.js**: Data visualization for performance charts
 - **localStorage**: Persistent data storage (all data stays on your device)
@@ -57,7 +72,7 @@ Includes practical tips for improving speed and accuracy.
 - Scales perfectly on tablets and desktops
 
 ### Breakpoints:
-- �� **Mobile**: < 480px (single column, compact)
+- 📱 **Mobile**: < 480px (single column, compact)
 - 📱 **Tablet**: 480px - 768px (2 columns)
 - 🖥️ **Desktop**: > 768px (full multi-column layout)
 
@@ -65,26 +80,33 @@ Includes practical tips for improving speed and accuracy.
 
 ## 🎨 Design
 
-### Modern Dark Theme
-- **Color Scheme**: Indigo, slate, and emerald accents
-- **Animations**: Smooth transitions and micro-interactions
+### Customizable Color Themes
+- **10 Hand-Picked Palettes**: From warm cafes to electric blues
+- **Solid Colors**: No gradients on text, clean and modern look
+- **Subtle Backgrounds**: Minimal color variation in background colors for depth
+- **Consistent UI**: All themes maintain readability and accessibility
+- **Animations**: Smooth transitions and micro-interactions across all themes
 - **Accessibility**: High contrast ratios, semantic HTML
-- **Typography**: Clear, readable fonts with proper hierarchy
 
 ### Key UI Elements
 - Large, readable problem display with visual hierarchy
-- Real-time timer with glow effect
+- Real-time timer with visual feedback
 - Color-coded feedback (green for correct, red for incorrect)
 - Intuitive tab navigation with icons
 - Responsive data visualizations
+- Settings panel for theme selection
 
 ---
 
 ## 💾 Local Storage
 
-All data is stored locally in your browser's localStorage under the key `multiplicationHistory`. No data is ever sent to a server.
+All data is stored locally in your browser's localStorage. No data is ever sent to a server.
 
-**Data Structure**:
+**Data Keys**:
+- `multiplicationHistory` - Array of all solve attempts
+- `selectedTheme` - Current active theme (defaults to cafe)
+
+**Solve Data Structure**:
 ```javascript
 {
   num1: 23,              // First number
@@ -102,15 +124,16 @@ All data is stored locally in your browser's localStorage under the key `multipl
 ## 🚀 Getting Started
 
 ### Online (Recommended)
-1. Visit: https://bholdddd.github.io/multiplication-trainer
+1. Visit: https://bholdvilnius.github.io/multiplication-trainer
 2. Click "Practice" and start solving problems
 3. Check "Statistics" to see your progress
 4. Read "Learn" for multiplication techniques
+5. Customize your experience in "Settings" with 10 color themes
 
 ### Local Setup
 1. Clone the repository:
 ```bash
-git clone https://github.com/bholdddd/multiplication-trainer.git
+git clone https://github.com/bholdvilnius/multiplication-trainer.git
 cd multiplication-trainer
 ```
 
@@ -167,6 +190,7 @@ This app uses the same averaging system as competitive speedcubing to fairly rep
 4. **Learn Techniques**: Study the Learn tab to understand mental methods
 5. **Visualize**: Picture the numbers in your mind as you calculate
 6. **Memorize Squares**: Knowing 2-digit squares helps significantly
+7. **Customize Your Theme**: Choose a color theme that keeps you focused
 
 ---
 
@@ -193,6 +217,20 @@ For deeper learning:
 - [Vedic Mathematics](https://www.vedicmathematics.org/)
 - [Mental Arithmetic](https://www.guinnessworldrecords.com/world-records/fastest-time-to-multiply-two-8-digit-numbers)
 - [Speedcubing Statistics](https://www.cubingworldcup.com/)
+
+---
+
+## 📝 Recent Updates
+
+### Version 1.1.0 - Theme System
+- Added 10 hand-curated color themes inspired by popular keyboard color schemes
+- Implemented theme persistence with localStorage
+- Removed gradient effects for cleaner, modern aesthetic
+- Enhanced Settings tab with visual theme previews
+- Improved accessibility across all themes
+
+### Themes Added:
+- cafe, strawberry, creamsicle, iv_clover, alpine, striker, serika_dark, repose_dark, sonokai, viridescent
 
 ---
 
