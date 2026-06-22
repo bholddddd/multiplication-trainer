@@ -36,11 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeApp() {
     loadHistory();
     updateSessionStats();
-    // Show initial state with Generate button
     showInitialState();
-    // Load saved theme
     loadSavedTheme();
-    // Load saved timer visibility
     loadTimerVisibility();
 }
 
@@ -51,17 +48,27 @@ function setupEventListeners() {
 
     document.getElementById('generateBtn').addEventListener('click', startPractice);
     document.getElementById('submitBtn').addEventListener('click', submitAnswer);
+
+    // Handle Enter on the input field while typing (submit answer)
     document.getElementById('answerInput').addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            // If the next problem button is enabled, advance to next problem
-            if (!document.getElementById('newProblemBtn').disabled) {
+            submitAnswer();
+        }
+    });
+
+    // Document-level listener handles Enter after submission
+    // (answerInput is disabled then, so its own keypress won't fire)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const nextBtn = document.getElementById('newProblemBtn');
+            const inputFocused = document.activeElement === document.getElementById('answerInput');
+            // Only fire if input isn't focused (it handles its own Enter while active)
+            if (!nextBtn.disabled && !inputFocused) {
                 nextProblem();
-            } else {
-                // Otherwise submit the current answer
-                submitAnswer();
             }
         }
     });
+
     document.getElementById('newProblemBtn').addEventListener('click', nextProblem);
     document.getElementById('resetSessionBtn').addEventListener('click', resetSession);
     document.getElementById('clearHistoryBtn').addEventListener('click', clearAllData);
@@ -172,13 +179,8 @@ function setupThemeSelector() {
 }
 
 function setTheme(themeName) {
-    // Set the data-theme attribute on root
     document.documentElement.setAttribute('data-theme', themeName);
-    
-    // Save to localStorage
     localStorage.setItem(STORAGE_KEYS.THEME, themeName);
-    
-    // Update active button
     document.querySelectorAll('.theme-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.dataset.theme === themeName) {
@@ -196,21 +198,15 @@ function loadSavedTheme() {
 // INITIAL STATE
 // ===========================
 function showInitialState() {
-    // Hide problem display
     document.getElementById('num1').textContent = '--';
     document.getElementById('num2').textContent = '--';
     
-    // Reset input
     document.getElementById('answerInput').value = '';
     document.getElementById('answerInput').disabled = true;
     
-    // Reset timer
     resetTimer();
-    
-    // Clear feedback
     clearFeedback();
     
-    // Update button states
     document.getElementById('generateBtn').disabled = false;
     document.getElementById('generateBtn').style.display = 'inline-block';
     document.getElementById('newProblemBtn').disabled = true;
@@ -280,11 +276,9 @@ function generateNewProblem() {
     input.disabled = false;
     input.focus();
 
-    // Enable submit button
     document.getElementById('submitBtn').disabled = false;
     document.getElementById('newProblemBtn').disabled = true;
 
-    // Hide timer when showing new problem (if timer toggle is off)
     if (!state.timerVisible) {
         document.getElementById('timer').style.display = 'none';
     }
@@ -340,7 +334,6 @@ function submitAnswer() {
     stopTimer();
     const elapsedTime = getElapsedTime();
 
-    // Show timer when displaying result
     document.getElementById('timer').style.display = 'block';
 
     if (userAnswer === state.currentProblem.answer) {
@@ -360,11 +353,6 @@ function submitAnswer() {
         saveToHistory(solve);
         updateSessionStats();
 
-        // Disable input and submit, enable next problem button
-        document.getElementById('answerInput').disabled = true;
-        document.getElementById('submitBtn').disabled = true;
-        document.getElementById('newProblemBtn').disabled = false;
-
     } else {
         showFeedback(`✗ Incorrect! Answer is ${state.currentProblem.answer}`, 'incorrect');
 
@@ -379,12 +367,12 @@ function submitAnswer() {
         };
 
         saveToHistory(solve);
-
-        // Disable input and submit, enable next problem button
-        document.getElementById('answerInput').disabled = true;
-        document.getElementById('submitBtn').disabled = true;
-        document.getElementById('newProblemBtn').disabled = false;
     }
+
+    // Disable input and submit, enable next problem button
+    document.getElementById('answerInput').disabled = true;
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('newProblemBtn').disabled = false;
 }
 
 // ===========================
