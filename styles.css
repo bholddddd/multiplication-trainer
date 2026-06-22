@@ -292,7 +292,7 @@ header h1 {
 .practice-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 2rem;
     background: var(--bg-secondary);
     border-radius: 1rem;
@@ -303,7 +303,7 @@ header h1 {
 .problem-display {
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .problem {
@@ -483,8 +483,6 @@ header h1 {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: -40px;
-    padding-top: 60px;
 }
 
 /* ===========================
@@ -501,9 +499,6 @@ header h1 {
     align-items: center;
     justify-content: center;
     font-family: 'JetBrains Mono', monospace;
-    margin-bottom: -60px;
-    position: relative;
-    z-index: 1;
 }
 
 .feedback.correct {
@@ -525,7 +520,6 @@ header h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
-    margin-top: -80px;
 }
 
 .stat {
