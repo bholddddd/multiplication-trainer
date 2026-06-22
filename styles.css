@@ -483,7 +483,8 @@ header h1 {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: -40px;
+    padding-top: 60px;
 }
 
 /* ===========================
@@ -521,6 +522,7 @@ header h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
+    margin-top: -80px;
 }
 
 .stat {
