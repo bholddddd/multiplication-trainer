@@ -179,7 +179,12 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -188,7 +193,12 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
-    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 /* ===========================
@@ -545,7 +555,13 @@ header h1 {
     border-radius: 1rem;
     border: 1px solid var(--text-primary);
     max-height: 90vh;
-    overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.learn-container::-webkit-scrollbar {
+    display: none;
 }
 
 .learn-container h2 {
@@ -679,7 +695,13 @@ header h1 {
     border-radius: 1rem;
     border: 1px solid var(--text-primary);
     max-height: 90vh;
-    overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.statistics-container::-webkit-scrollbar {
+    display: none;
 }
 
 .statistics-container h2 {
@@ -852,7 +874,13 @@ header h1 {
     border-radius: 1rem;
     border: 1px solid var(--text-primary);
     max-height: 90vh;
-    overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.settings-container::-webkit-scrollbar {
+    display: none;
 }
 
 .settings-container h2 {
